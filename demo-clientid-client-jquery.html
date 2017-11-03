@@ -1,0 +1,56 @@
+<HTML>
+<BODY>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <style>
+    table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    }
+
+    td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    }
+
+    tr:nth-child(even) {
+    background-color: #dddddd;
+    }
+    </style>
+<SCRIPT>
+
+  var token = 'byaBaB75ByznzywOHeICtO6gMgtJ'
+
+$.ajax({
+     url: 'https://columbia-demo-clientid.cloudhub.io/v1/api/stuff',
+     crossDomain: true,
+     async: true,
+     type: 'GET',
+     dataType: 'json',
+     success: function(result) { console.log(result);
+                                 //$("body").append("result: " + result.data[0].thing.toString()); 
+                                 $("body").append("<TABLE>");
+				 $.each(result.data, function (key, value) {
+                                   console.log(value);
+                                   $("body").append("<TR>");
+                                   $.each(value, function (k, v) {
+                                      console.log("k: "+k + " v: "+v);
+                                      $("body").append("<TH>"+k+"</TH><TD>"+v+"</TD>");
+                                   });
+                                 $("body").append("</TR>");
+                                 });
+                                 $("body").append("</TABLE>");
+                               },
+     error: function(result) { console.log(result.responseText); 
+                                 $("body").append("<B>error: "+result.responseText+"</B>");
+                             },
+     beforeSend: function(xhr) { xhr.setRequestHeader('authorization', 'Bearer ' + token); }
+
+});
+
+</SCRIPT>
+</BODY>
+</HTML>    
+
+

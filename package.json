@@ -1,0 +1,25 @@
+{
+  "name": "api-training",
+  "version": "1.0.0",
+  "description": "jupyter notebook for javascript examples",
+  "main": "index.js",
+  "dependencies": {
+    "client-oauth2": "^4.1.0",
+    "jquery": "^3.2.1",
+    "node-jsdom": "^3.1.5",
+    "request": "^2.81.0",
+    "unirest": "^0.5.1",
+    "xhr": "^2.4.0",
+    "xmlhttprequest": "^1.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:n2ygk/api-training.git"
+  },
+  "author": "Alan Crosswell",
+  "license": "Apache-2.0"
+}
