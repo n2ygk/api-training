@@ -43,6 +43,8 @@ Here's a notebook that demonstrates using the demo-echo API with the Authorizati
 ## demo-jsonapi-client
 
 This set of notebooks demonstrates the [{json:api}](http://jsonapi.org) RESTful request/response standard.
+See https://github.com/n2ygk/mulesoft-demo-jsonapi for a demo server that runs on Mulesoft. This client uses
+said deployed server. Credentials for it are in the notebook. Don't worry; it's rate-limited.
 
 - demo-jsonapi-client-py.ipynb (Python)
   - [notebook file](demo-jsonapi-client-py.ipynb)
