@@ -33,7 +33,7 @@ Here's a notebook that demonstrates using the demo-echo API with the Authorizati
 [Installing Jupyter](https://jupyter.org/install.html) gets you a basic Python system:
 
 ```
-git clone git@gitlab.cc.columbia.edu:cuit-ent-arch/api-training.git
+git clone git@github.com:n2ygk/api-training.git
 cd api-training
 pip install jupyter
 # or pip3 install jupyter for Python 3
