@@ -1,0 +1,96 @@
+<HTML>
+<BODY>
+  <script src="https://github.com/js-data/js-data/releases/download/3.0.0/js-data.js"></script>
+  <script src="https://github.com/js-data/js-data-http/releases/download/3.0.0-rc.2/js-data-http.min.js"></script>
+  <style>
+    table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    }
+
+    td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    }
+
+    tr:nth-child(even) {
+    background-color: #dddddd;
+    }
+    </style>
+
+<!-- const options = { -->
+<!--   basePath: 'https://mydomain.com', -->
+<!--   beforeHTTP: function (config, opts) { -->
+<!--     config.headers || (config.headers = {}); -->
+<!--     config.headers.authorization = `Bearer ${localStorage.get('auth_token')}`; -->
+    
+<!--     // Now do the default behavior -->
+<!--     return HttpAdapter.prototype.beforeHTTP.call(this, config, opts); -->
+<!--   } -->
+<!-- }; -->
+
+
+<SCRIPT>
+
+var token = 'QuVkCyCZM1PZORNjHOmtHe1xhNH2'
+
+console.log(JSData.version.full);
+console.log(JSDataHttp.version.full);
+
+var store = new JSData.DataStore()
+
+// see example above that stores the auth_token in localStorage.
+var adapter = new JSDataHttp.HttpAdapter({
+  basePath: 'https://test-columbia-demo-jsonapi.cloudhub.io/v1/api/',
+  beforeHTTP: function (config, opts) {
+    config.headers || (config.headers = {});
+    config.headers.authorization = 'Bearer ' + token;
+    // Now do the default behavior
+    return JSDataHttp.HttpAdapter.prototype.beforeHTTP.call(this, config, opts);
+  }
+});
+store.registerAdapter('http', adapter, { default: true });
+
+var WidgetMapper = store.defineMapper('widgets', {
+  endpoint: 'widgets',
+  schema: {
+    type: 'object',
+    properties: {
+      id: {
+        type: 'string'
+      },
+      type: {
+        type: 'string'
+      },
+      attributes: {
+        type: 'object',
+        properties: {
+          name: {
+            type: 'string'
+          },
+          qty: {
+            type: 'integer'
+          }
+        }
+      }
+    }
+  }
+});
+
+store.on('all', function(a, b, c, d) {
+  console.log('event raised: "' + a + '"', b || '', c || '', d || '')
+});
+
+WidgetMapper.find().then((wids) => {
+  // nothing gets logged
+  console.log(wids);
+});
+
+
+</SCRIPT>
+</BODY>
+</HTML>    
+
+
