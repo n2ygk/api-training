@@ -57,7 +57,9 @@ said deployed server. Credentials for it are in the notebook. Don't worry; it's 
 ```
 git clone git@github.com:n2ygk/api-training.git
 cd api-training
-pip3 install jupyter
+pip3 -m venv env
+source env/bin/activate
+pip3 install -r requirements.txt
 jupyter notebook
 ```
 
