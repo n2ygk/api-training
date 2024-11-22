@@ -48,7 +48,7 @@ six==1.11.0
 tenacity==4.12.0
 terminado==0.8.1
 testpath==0.3.1
-tornado==6.4.1
+tornado==6.4.2
 traitlets==4.3.2
 urllib3==1.26.19
 wcwidth==0.1.7
